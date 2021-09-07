@@ -37,4 +37,8 @@ export class CheckoutFormComponent implements OnInit {
     this.router.navigateByUrl("/confirm");
   }
 
+  setname(given_name: string) {
+    this.name = given_name;
+  }
+
 }

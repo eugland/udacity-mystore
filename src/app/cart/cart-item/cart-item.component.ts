@@ -25,12 +25,16 @@ export class CartItemComponent implements OnInit {
   checkNumbers(e: Event): void {
     const input = ( e.target as HTMLInputElement)
     const value= parseInt(input.value);
-    
+
+
+
     if (value && Math.abs(value) > 0) {
       input.value = Math.abs(value).toString();
     } else {
       input.value = "1";
     }
+
+    alert(`You are now buying ${this.product.quantity}x ${this.product.name}`);
 
     this.product.quantity = parseInt(input.value);
     this.cart.total.next(this.cart.getTotal());
