@@ -4,7 +4,7 @@
         <ul>
             <app-cart-item *ngFor="let product of products$ | async" [product]="product" (removeItemFromCart)="removeCartItem($event)"></app-cart-item>
         </ul>
-        <p class="total-price" *ngIf="sum$ | async">Total: {{ (sum$ | async) | currency: "EUR" }}</p>
+        <p class="total-price" *ngIf="sum$ | async">Total: {{ (sum$ | async) | currency }}</p>
         <p *ngIf="!(sum$ | async)">... is empty</p>
     </div>
 

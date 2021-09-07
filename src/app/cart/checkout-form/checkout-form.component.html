@@ -2,7 +2,7 @@
     <h3>Fill in your details</h3>
     <form (ngSubmit)="onSubmit()" #form="ngForm">
         <input type="text" name="name" [(ngModel)]="name" placeholder="full name" pattern="([a-zA-Z]+\s)+([a-zA-Z]+)" minlength="3" required #fullName="ngModel">
-        <input type="text" name="address" [(ngModel)]="address" placeholder="address" pattern="([a-zA-Z-]+\s)+(([a-zA-Z-]+)\s)*\d+" minlenght="3" required #addressField="ngModel">
+        <input type="text" name="address" [(ngModel)]="address" placeholder="address" minlenght="3" required #addressField="ngModel">
         <input type="text" name="creditCard" [(ngModel)]="creditCard" pattern="(\d{4}(\s)?){4}" placeholder="credit card numbers" minlength="16" required #card="ngModel">
         <button type="submit" [disabled]="form.invalid || (this.cartCount$ | async) == 0">Order</button>
     </form>
@@ -11,10 +11,10 @@
         Please enter a valid credit card number (16-digit or 4-number groups with spaces)
     </div>
     <div class="error-message" *ngIf="fullName.errors?.pattern">
-        Please enter a valid name (at least: name + surname)
+        Please enter a valid name (at least: first name + last name)
     </div>
     <div class="error-message" *ngIf="addressField.errors?.pattern">
-        Please enter a valid address (Streetname + Number)
+        Please enter a valid address (number + street name)
     </div>
     <div class="error-message" *ngIf="(this.cartCount$ | async) == 0">
         Your cart is empty
